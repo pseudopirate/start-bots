@@ -1,0 +1,28 @@
+version: '3.3'
+services:
+        pseudobastion:
+                build: /home/pseudopirate/pseudobastion/
+                restart: always
+                env_file:
+                        - /home/pseudopirate/pseudobastion/.env
+        telegram-bot-api:
+                image: aiogram/telegram-bot-api:latest
+                ports:
+                        - "8081:8081"
+                restart: always
+                env_file:
+                        - /home/pseudopirate/telegram-bot-api/.env
+                volumes:
+                        - /home/pseudopirate/telegram-bot-api-data:/var/lib/telegram-bot-api
+        wannamusic:
+                build: /home/pseudopirate/wannamusic
+                restart: always
+                env_file:
+                          - /home/pseudopirate/wannamusic/.env
+        carousel:
+                build: /home/pseudopirate/carousel-bot
+                restart: always
+                env_file:
+                        - /home/pseudopirate/carousel-bot/.env
+                volumes:
+                        - /home/pseudopirate/carousel-db:/db

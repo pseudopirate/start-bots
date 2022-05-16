@@ -18,7 +18,9 @@ services:
                 build: /home/pseudopirate/wannamusic
                 restart: always
                 env_file:
-                          - /home/pseudopirate/wannamusic/.env
+                        - /home/pseudopirate/wannamusic/.env
+                volumes:
+                        - /home/pseudopirate/wannamusic-tmp:/app/tmp
         carousel:
                 build: /home/pseudopirate/carousel-bot
                 restart: always
